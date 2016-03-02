@@ -1,0 +1,244 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}
+ESPM - Cursos de Atualização
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.themed.css' %}">
+<link rel="stylesheet" href="{% static 'css/espm/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="featured">
+	<div class="container">
+
+		<!-- ****** -->
+		<!-- Header -->
+		<!-- ****** -->
+		<div class="row header">
+			<div class="col-lg-12 text-center reduced-container mt-lg mb-lg">
+				<img src="{% static 'img/espm/logo-espm-2.png' %}" alt="Logo ESPM">
+			</div>
+			<div class="col-lg-12 text-center reduced-container">
+				<img src="{% static 'img/espm/header.jpg' %}" alt="Cursos de Atualização" class="responsive">
+			</div>
+			<div class="col-lg-12 reduced-container mt-lg">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="row">
+							<div class="col-lg-12">
+								<img src="{% static 'img/espm/categorias.jpg' %}" alt="Categorias de Cursos" class="responsive">
+							</div>
+							<div class="col-lg-12 mt-sm">
+								<div class="row">
+									<div class="col-sm-4 center-xs">
+										<a href="#" class="gestaoButton"><img src="{% static 'img/espm/gestao.jpg' %}" alt="Gestão" class="responsive"></a>
+									</div>
+									<div class="col-sm-4 center-xs">
+										<a href="#" class="digitalButton"><img src="{% static 'img/espm/digital.jpg' %}" alt="Digital" class="responsive"></a>
+									</div>
+									<div class="col-sm-4 center-xs">
+										<a href="#" class="marketingButton"><img src="{% static 'img/espm/marketing.jpg' %}" alt="Marketing" class="responsive"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br class="visible-xs">
+					<div class="col-sm-4 center-xs">
+						<img src="{% static 'img/espm/duracao-dos-cursos.jpg' %}" class="responsive" alt="Duração dos Encontros">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ********* -->
+		<!-- Lead Form -->
+		<!-- ********* -->
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 lead-form-wrapper">
+				<form action="/send-lead/" class="lead-form" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="client" value="espm">
+					<input type="hidden" name="obs" value="" id="obs">
+					<div class="form-group">
+					</div>
+					<div class="form-group">
+						<input id="leadName" class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="email" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+						<p class="help-block"></p>
+					</div>
+					<div class="form-group">
+						<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+					</div>
+					<div class="form-group">
+						<select name="period" class="form-control" required>
+							<option value="" disabled selected>Melhor horário</option>
+							<option value="9,12">De 9h até 12h</option>
+							<option value="12,14">De 12h até 14h</option>
+							<option value="14,18">De 14h até 18h</option>
+							<option value="18,20">De 18h até 20h</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="checkbox" name="age_over_18" id="ageOver18" class="cbox-lg" required>
+						<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
+					</div>
+					<div class="form-group">
+						<input class="form-control btn btn-success" type="submit" value="Solicitar Ligação">
+						<!-- <p class="sub">Válido somente para Grande São Paulo e Baixada Santista</p> -->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12"><h2>Cursos de Atualização ESPM</h2></div>
+		
+		<div class="col-lg-12 filters well">
+			<b>Filtrar por categoria</b>
+			<button class="btn btn-default todosButton">Todas</button>
+			<button class="btn btn-success gestaoButton">Gestão</button>
+			<button class="btn btn-info digitalButton">Digital</button>
+			<button class="btn btn-danger marketingButton">Marketing</button>
+		</div>
+
+		<div class="item-list">
+			<ul>
+				{% for course in courses %}
+				{% if course.is_active %}
+
+				<!-- **************** -->
+				<!-- Course List Item -->
+				<!-- **************** -->
+
+				<li class="views-row views-row-1 views-row-odd views-row-first {{ course.category | slugify }}">
+					<div class="views-field views-field-field-thumb-subtitulo">
+						<div class="field-content">
+							{% if course.image %}
+								<img src="{{ course.image.url }}" width="170" height="100" alt="{{ course.name }}" />
+							{% else %}
+								<img src="{% static 'img/espm/cursos/nao-disp.jpg' %}" alt="Imagem não disponível">
+							{% endif %}
+						</div>
+					</div>  
+					<h3 class="views-field views-field-title">
+						<span class="field-content">
+							<a href="#">{{ course.name }}</a>
+						</span>
+					</h3>
+					<p>
+						{{ course.description }}
+					</p>
+
+					<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2">
+						<div class="row">
+							<div class="views-field views-field-field-curso-inicio-evento course-attribute">
+								<span class="views-label views-label-field-curso-inicio-evento">Data início:</span>
+								<div class="field-content">{{ course.starting_date }}</div>
+							</div>  
+							<div class="views-field views-field-field-curso-qtd-periodos-letivos course-attribute">
+								<div class="field-content">
+									<span>Duração:</span>
+									<em>{{ course.duration }}</em>
+								</div>
+							</div>  
+							<!-- <div class="views-field views-field-nothing course-attribute">
+								<span class="field-content">
+									<span>Valor:</span>
+									<em> R$</em>
+								</span>
+							</div> -->
+							<div class="views-field views-field-field-local-ref-nid course-attribute">
+								<span class="views-label views-label-field-local-ref-nid">Local: </span>
+								<div class="field-content">{{ course.location }}</div>
+							</div>  
+							<div class="views-field views-field-title-1 course-cta-wrapper pull-right">
+								<span class="field-content">
+									<a class="course-cta text-center" data-course-name="Curso: {{ course.name }}" href="#top">Solicitar Mais Informações</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+<script type="text/javascript">
+	// =============
+    // Scroll To Top
+    // =============
+    $("a[href='#top']").click(function() {
+	  $("html, body").animate({ scrollTop: 200 }, "slow", function() {
+	  	$("#leadName").focus();
+	  });
+	  return false;
+	});
+
+	$(".course-cta").click(function(){
+		$("#obs").val($(this).data('courseName'));
+		return false;
+	});
+
+    // ==========
+	// Phone Mask
+	// ==========
+	var options =  {onKeyPress: function(value, e, field, options){
+		var masks = ['(00) 0000-00000', '(00) 00000-0000'];
+		mask = (value.length>14) ? masks[1] : masks[0];
+		$('.phone-mask').mask(mask, options);
+	}};
+
+	$('.phone-mask').mask('(00) 0000-00000', options);
+
+
+	// Course Filtering by Category
+	$(".todosButton").click(function(){
+		$(".gestao").fadeIn("fast");
+		$(".digital").fadeIn("fast");
+		$(".marketing").fadeIn("fast");
+		var scroll = ($(document).width() < 768 ? 1300 : 900);
+		$("html, body").animate({ scrollTop: scroll }, "slow");
+	});
+	$(".gestaoButton").click(function(){
+		$(".gestao").fadeIn("fast");
+		$(".digital").fadeOut("fast");
+		$(".marketing").fadeOut("fast");
+		var scroll = ($(document).width() < 768 ? 1300 : 900);
+		$("html, body").animate({ scrollTop: scroll }, "slow");
+	});
+
+	$(".digitalButton").click(function(){
+		$(".gestao").fadeOut("fast");
+		$(".digital").fadeIn("fast");
+		$(".marketing").fadeOut("fast");
+		var scroll = ($(document).width() < 768 ? 1300 : 900);
+		$("html, body").animate({ scrollTop: scroll }, "slow");
+	});
+
+	$(".marketingButton").click(function(){
+		$(".gestao").fadeOut("fast");
+		$(".digital").fadeOut("fast");
+		$(".marketing").fadeIn("fast");
+		var scroll = ($(document).width() < 768 ? 1300 : 900);
+		$("html, body").animate({ scrollTop: scroll }, "slow");
+	});
+
+</script>
+{% endblock %}

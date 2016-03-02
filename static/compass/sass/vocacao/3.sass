@@ -1,0 +1,112 @@
+@import '2'
+
+// ====
+// LOGO
+// ====
+section.logo
+	margin-top: 20px
+
+	img.logo
+		width: 140px
+
+// =============
+// FEATURED TEXT
+// =============
+section.featured-text
+	:margin-top 10px
+	:margin-bottom 80px
+
+	h2
+		font-size: 40px
+
+@media(max-width: #{$xs-max})
+	section.featured-text
+		:margin-bottom 20px
+
+		h2
+			:font-size 25px
+
+// =========
+// LEAD FORM
+// =========
+section.lead-form-wrapper
+	p.form-header
+		color: white
+		font-size: 20px
+		margin-bottom: 20px
+
+	.lead-form-container
+		padding: 30px 34px 11px 34px
+
+	.doe-coracao
+		position: absolute
+		width: 100px
+		top: -50px
+
+	p.security
+		color: #eee
+		text-align: center
+
+@media(max-width: #{$sm-max})
+	section.lead-form-wrapper
+		margin-top: 30px
+
+		#sendLeadSubmit
+			:font-size 16px
+
+		.doe-coracao
+			top: -20px
+			width: 50px
+
+// =========
+// HERO SHOT
+// =========
+section.hero-shot-2
+
+	.hero-shot-2
+		margin-top: 20px
+
+		.hero-shot-2-container
+			background: #eee
+			padding: 20px
+
+			.hero-shot-video
+				text-align: center
+				display: block
+
+				#ytplayer
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+
+footer
+	:margin 20px 0
+
+	p
+		font-size: 15px
+		text-align: center
+		font-weight: bold
+		margin: 0
+
+// ============
+// Other Styles
+// ============
+
+// Responsive Embeded Video
+.video-container 
+	position: relative
+	padding-bottom: 56.25%
+	padding-top: 30px
+	height: 0
+	overflow: hidden
+
+	iframe,
+	object,
+	embed
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%

@@ -1,0 +1,189 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Vocação - uma ONG para o Brasil do século XXI
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/vocacao/2.css' %}">
+<link rel="stylesheet" href="{% static 'css/default.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/gotham/stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ****************** -->
+<!-- LEAD FORM and LOGO -->
+<!-- ****************** -->
+
+<section class="lead-form-wrapper">
+	<div class="container lead-form-container">
+		<div class="row">
+			
+			<!-- **** -->
+			<!-- Logo -->
+			<!-- **** -->
+			<div class="col-md-4 logo-wrapper xs-center sm-center">
+				<img class="logo" src="{% static 'img/vocacao/logo-vocacao.png' %}" alt="Logo Vocação" title="Logo Vocação">
+			</div>
+
+			<!-- ********* -->
+			<!-- Lead Form -->
+			<!-- ********* -->
+			<div class="col-md-8">
+				<form action="/send-lead/" class="lead-form" method="POST" id="sendLeadForm">
+					{% csrf_token %}
+					<input type="hidden" name="client" value="vocacao">
+					{% if version == "c" %}
+					<input type="hidden" name="confirm_template" value="vocacao/confirm2.html">
+					{% endif %}
+
+					<div class="form-group">
+						<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+					</div>
+					<div class="row">
+						{% if version != "c" %}
+						<div class="form-group col-md-6">
+						{% else %}
+						<div class="form-group col-md-12">
+						{% endif %}
+							<input class="form-control" type="text" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+							<p class="help-block"></p>
+						</div>
+						{% if version != "c" %}
+						<div class="form-group col-md-6">
+							<input class="form-control cpf-mask" pattern=".{14}" name="cpf" type="text" maxlength="20" placeholder="CPF (só números)" required>
+						</div>
+						{% endif %}
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+						</div>
+						<div class="form-group col-md-6">
+							<select name="period" class="form-control" required>
+								<option value="" disabled selected>Melhor horário</option>
+								<option value="9,12">De 9h até 12h</option>
+								<option value="12,14">De 12h até 14h</option>
+								<option value="14,18">De 14h até 18h</option>
+								<option value="18,21">De 18h até 21h</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+					<div class="form-group col-md-6">
+						<input type="checkbox" name="age_over_18" id="ageOver18" class="cbox-lg" required>
+						<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
+					</div>
+						<div class="form-group col-md-6">
+							<input id="sendLeadSubmit" class="form-control" type="submit" value="Apoiar">
+						</div>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+<!-- ************* -->
+<!-- FEATURED TEXT -->
+<!-- ************* -->
+<section class="featured-text">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<img class="doe-coracao" src="{% static 'img/vocacao/doe-coracao.png' %}" alt="">
+				<h2>O seu apoio faz o Brasil melhor.</h2>
+			</div>
+			<div class="col-sm-8">
+				<h3>
+					Há quase 50 anos a Vocação investe em educação, e já atendeu mais de 150 mil crianças.
+				</h3>
+			</div>
+			<div class="col-sm-4">
+				<img class="tres-pessoas responsive hidden-xs" src="{% static 'img/vocacao/tres-pessoas.png' %}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ********* -->
+<!-- HERO SHOT -->
+<!-- ********* -->
+<section class="hero-shot">
+	{% if version == "b" %}
+		<img class="responsive" src="{% static 'img/vocacao/hero-shot-3.jpg' %}" alt="">
+	{% else %}
+		<img class="responsive" src="{% static 'img/vocacao/hero-shot-2.jpg' %}" alt="">
+	{% endif %}
+</section>
+
+<!-- ****** -->
+<!-- FOOTER -->
+<!-- ****** -->
+<footer class="container">
+	<div class="row">
+		<div class="col-sm-7">
+			<p>Resultados fiscais auditados e publicados pela KPMG.</p>
+		</div>
+		<div class="col-sm-3 col-sm-offset-2">
+			<img class="responsive hidden-xs" class="duas-maos" src="{% static 'img/vocacao/duas-maos.png' %}" alt="">
+		</div>
+	</div>
+</footer>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+<script type="text/javascript">
+	// ==========
+	// Phone Mask
+	// ==========
+	var options =  {onKeyPress: function(value, e, field, options){
+		var masks = ['(00) 0000-00000', '(00) 00000-0000'];
+		mask = (value.length>14) ? masks[1] : masks[0];
+		$('.phone-mask').mask(mask, options);
+	}};
+
+	$('.phone-mask').mask('(00) 0000-00000', options);
+	$('.cpf-mask').mask('000.000.000-00');
+
+	// ===========================
+	// Overlay Loading (on submit)
+	// ===========================
+	var formId = '#sendLeadForm';
+	var submitButtonId = '#sendLeadSubmit';
+
+	$(formId).submit(function() {
+
+		var confirmText = 
+			'Os dados estão corretos?\n\n'+
+			'Nome: '+$("[name=name]").val()+'\n'+
+			'Email: '+$("[name=email]").val()+'\n'+
+			'Telefone: '+$("[name=phone]").val();
+		
+		if(confirm(confirmText) == false)
+			return false;
+		else {
+			$(submitButtonId).attr('disabled','disabled');
+			$(submitButtonId).attr('value','Enviando...');
+
+			// add the overlay with loading image to the page
+			var over =  '<div id="overlay">' +
+							'<div id="loading"></div>' +
+						'</div>';
+			$(over).appendTo('body');
+
+			return true;
+		}
+	});
+
+
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "main.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Vocação - uma ONG para o Brasil do século XXI
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/vocacao/3.css' %}">
+<link rel="stylesheet" href="{% static 'css/default.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/gotham/stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- **** -->
+<!-- LOGO -->
+<!-- **** -->
+<section class="logo">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 logo-wrapper text-center">
+				<img class="logo" src="{% static 'img/vocacao/logo-vocacao3.png' %}" alt="Logo Vocação" title="Logo Vocação">
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ************* -->
+<!-- FEATURED TEXT -->
+<!-- ************* -->
+<section class="featured-text">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-12 text-center">
+				<h2>
+					{% if version == "a" %}
+					Caridade: Saiba como Ajudar as Crianças da Vocação
+					{% endif %}
+					{% if version == "b" %}
+					Faça uma Doação a partir de R$10 e ajude as Crianças da Vocação
+					{% endif %}
+					{% if version == "c" %}
+					Faça uma Doação a partir de R$10 e ajude as Crianças da Vocação
+					{% endif %}
+					{% if version == "d" %}
+					Ajude as Crianças Carentes da Vocação a partir de apenas R$10
+					{% endif %}
+					{% if version == "e" %}
+					Doe a partir de R$10 e ajude as Crianças da ONG Vocação
+					{% endif %}
+				</h2>
+				<h3>
+					Há quase <b>50 anos</b> a <b>Vocação</b> investe em educação, e já atendeu mais de <b>150 mil crianças</b>.
+				</h3>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<!-- ********* -->
+			<!-- HERO SHOT -->
+			<!-- ********* -->
+			<section class="hero-shot-2">
+				<div class="hero-shot-2-container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div>
+								<img class="responsive" src="{% static 'img/vocacao/hero-shot-4.jpg' %}" alt="">
+					  		</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="col-md-6">
+
+			<!-- ********* -->
+			<!-- LEAD FORM -->
+			<!-- ********* -->
+			
+			<section class="lead-form-wrapper">
+				<img class="doe-coracao" src="{% static 'img/vocacao/doe-coracao.png' %}" alt="">
+
+				<div class="lead-form-container">
+
+					<form action="/send-lead/vocacao" class="lead-form" method="POST" id="sendLeadForm">
+
+						<p class="form-header">Preenha os dados abaixo e <b>doe a partir de R$10</b></p>
+						{% csrf_token %}
+						<input type="hidden" name="client" value="vocacao">
+						<input type="hidden" name="period" value="">
+						<input type="hidden" name="confirm_template" value="vocacao/confirm2.html">
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<input class="form-control" type="text" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-12">
+								<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+							</div>
+						</div>
+						<div class="row">
+							<!-- <div class="form-group col-md-6">
+								<input type="checkbox" name="age_over_18" id="ageOver18" class="cbox-lg" required>
+								<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
+							</div> -->
+							<div class="form-group col-md-12">
+								<input id="sendLeadSubmit" class="form-control" type="submit" value="Quero fazer uma doação">
+							</div>
+						</div>
+						<p class="security">
+							<span class="glyphicon glyphicon-lock"></span>
+							Seus dados estão protegidos.
+						</p>
+					</form>
+					
+				</div>
+			</section>
+		</div>
+
+		
+	</div>
+</div>
+
+<!-- ****** -->
+<!-- FOOTER -->
+<!-- ****** -->
+<footer class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<p>O seu apoio faz o Brasil melhor.<br>
+			Resultados fiscais auditados e publicados pela KPMG.</p>
+		</div>
+	</div>
+</footer>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+<script type="text/javascript">
+	// ==========
+	// Phone Mask
+	// ==========
+	var options =  {onKeyPress: function(value, e, field, options){
+		var masks = ['(00) 0000-00000', '(00) 00000-0000'];
+		mask = (value.length>14) ? masks[1] : masks[0];
+		$('.phone-mask').mask(mask, options);
+	}};
+
+	$('.phone-mask').mask('(00) 0000-00000', options);
+	$('.cpf-mask').mask('000.000.000-00');
+
+	// ===========================
+	// Overlay Loading (on submit)
+	// ===========================
+	var formId = '#sendLeadForm';
+	var submitButtonId = '#sendLeadSubmit';
+
+	$(formId).submit(function() {
+
+		var confirmText = 
+			'Os dados estão corretos?\n\n'+
+			'Nome: '+$("[name=name]").val()+'\n'+
+			'Email: '+$("[name=email]").val()+'\n'+
+			'Telefone: '+$("[name=phone]").val();
+		
+		if(confirm(confirmText) == false)
+			return false;
+		else {
+			$(submitButtonId).attr('disabled','disabled');
+			$(submitButtonId).attr('value','Enviando...');
+
+			// add the overlay with loading image to the page
+			var over =  '<div id="overlay">' +
+							'<div id="loading"></div>' +
+						'</div>';
+			$(over).appendTo('body');
+
+			return true;
+		}
+	});
+
+
+
+</script>
+
+{% endblock %}

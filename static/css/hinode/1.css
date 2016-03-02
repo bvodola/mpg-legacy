@@ -1,0 +1,210 @@
+body {
+	background: url('../../img/hinode/hinode-bg-2.jpg') center -180px no-repeat;
+}
+@media (min-width:992px) and (max-width: 1200px) {
+	body {
+		background-position: -750px -180px;
+	}
+}
+
+@media (min-width:1200px) {
+	body {
+		background-position: right -180px;
+	}
+}
+
+h1 {
+	color: #ca0000;
+}
+
+h2 {
+	color: #ca0000;
+	font-size: 23px;
+}
+
+h1 strong, h2 strong {
+	text-decoration: underline;
+}
+
+h3 {
+	
+}
+
+h3 mark {
+	background: #ffcb08;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 15px;
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.logo {
+	margin-top: 30px;
+}
+
+ul.benefits {
+	list-style-image: url('../../img/hinode/custom-bullet.png');
+    font-size: 15px;
+}
+
+	ul.benefits li {
+		margin-bottom: 10px;
+	    padding-left: 10px;
+	}
+
+/* ========= */
+/* Lead Form */
+/* ========= */
+
+@media(min-width: 1200px) {
+	#leadForm {
+		position: fixed;
+		right: 100px;
+		width: 450px;
+	}
+}
+
+@media(min-width: 992px) and (max-width: 1200px) {
+	#leadForm {
+		position: fixed;
+		right: 100px;
+		width: 350px;
+	}
+}
+
+.lead-form-wrapper {
+	background-color: rgba(255,203,8,0.9);
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.lead-form-wrapper nav ul {
+	margin-bottom: 40px;
+	padding: 0;
+}
+
+.lead-form-wrapper nav ul li {
+	color: #fff;
+	font-size: 20px;
+}
+
+.lead-form input, .lead-form select , .lead-form textarea {
+	border-radius: 0;
+	border: none;
+	font-size: 12px;
+	height: 50px;
+}
+
+.lead-form input[type=submit] {
+	background-color: #dc0c20;
+	color: #fff;
+	border: none;	
+}
+
+.lead-form .phone input {
+		display: inline;
+	}
+
+	.lead-form .phone .area-code {
+		width: 20%;
+	}
+
+	.lead-form .phone .phone-number {
+		width: 75.5%;
+		margin-left: 3%;
+	}
+
+	@media(max-width: 350px) {
+		.lead-form .phone .phone-number {
+			width: 74.5%;
+		}
+	}
+
+	@media(min-width: 992px) and (max-width: 1200px) {
+		.lead-form .phone .phone-number {
+			width: 74.5%;
+		}
+	}
+
+.lead-form .sub {
+	margin-top: 40px;
+	font-size: 18px;
+	text-align: center;
+}
+
+footer, footer a {
+	color: #fff;
+	font-size: 12px;
+}
+
+
+@media (min-width:1200px) {
+	.lead-form-wrapper {
+		height: 100%;
+		padding: 30px;
+		margin-top: 0;
+	}
+
+	.lead-form-wrapper nav ul li {
+		font-size: 30px;
+	}
+
+	.lead-form input, .lead-form select , .lead-form textarea {
+		font-size: 16px;
+	}
+
+	footer {
+		position: absolute;
+		bottom: 5px;
+		left: 30px;
+		width: 88%;
+	}
+}
+
+.round-badge {
+	width: 200px;
+    height: 200px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 100px;
+    padding: 55px 30px;
+    text-align: center;
+	font-size: 18px;
+	color: #fff;
+
+	transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+	-ms-transform: rotate(-10deg);
+	-o-transform: rotate(-10deg);
+}
+
+	.round-badge b {
+		font-size: 23px;
+	}
+
+@media(min-width: 1200px) {
+	.round-badge {
+		margin: 50px 0 0 35px;
+	}
+}
+
+.cbox-lg {
+	width: 25px;
+    height: 25px !important;
+    float: left;
+    margin: 0 10px 0 0 !important;
+}
+
+.cbox-label {
+	cursor: pointer;
+}
+
+.cbox-lg-label {
+	line-height: 25px;
+}
+
+.lead-form input[type=submit][disabled] {
+	background-color: #EB5B69;
+}

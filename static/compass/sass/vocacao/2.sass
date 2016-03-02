@@ -1,0 +1,166 @@
+// Screen Sizes
+$xs-max: 767px
+$sm-min: 768px
+$sm-max: 991px
+$md-min: 992px
+$md-max: 1119px
+$lg-min: 1200px
+
+// Varibles
+$blue: #00accd
+$dark-blue: #0093b4
+$yellow: #f2e600
+$gray: #665861
+
+// Placeholder Color Mixin
+=placeholder-color($element, $color)
+	#{$element}::-webkit-input-placeholder
+		color: $color
+	#{$element}:-moz-placeholder
+		color: $color
+		opacity: 1
+	#{$element}::-moz-placeholder
+		color: $color
+		opacity: 1
+	#{$element}:-ms-input-placeholder
+		color: $color
+
+// Define the .form-control placeholders color
++placeholder-color('.form-control',#fff)
+
+// Main Styles
+
+body
+	font-family: 'gotham'
+
+.responsive
+	max-width: 100%
+	height: auto
+
+@media(max-width: #{$xs-max})
+	.xs-center
+		text-align: center !important
+		float: none !important
+
+@media(min-width: #{$sm-min}) and (max-width: #{$sm-max})
+	.sm-center
+		text-align: center !important
+		float: none !important
+
+// Sections
+
+// =========
+// Lead Form
+// =========
+section.lead-form-wrapper
+	margin-bottom: 20px
+	
+	.lead-form-container
+		background-color: $blue
+		padding: 70px
+
+		.logo-wrapper
+			text-align: right
+			float: right
+
+			.logo
+				height: 200px
+
+			@media(max-width: #{$sm-max})
+				.logo
+					margin-bottom: 30px
+					height: 120px
+
+		.lead-form
+			font-family: 'gotham-book'
+
+			input, select
+				border: 0
+				border-radius: 0
+				height: 40px
+				background: $dark-blue
+				:color #fff
+			
+			label.cbox-label
+				color: #fff
+
+			input[type=checkbox]
+				height: auto
+
+			input[type=submit]
+				background-color: $yellow
+				color: #000
+				font-weight: bold
+				font-size: 20px
+
+		.doe-coracao
+			text-align: center
+	
+	@media(max-width: #{$xs-max})
+		.container
+			padding: 30px
+
+// =============
+// Featured Text
+// =============
+
+section.featured-text
+	:margin-top 90px
+
+	h2
+		color: $blue
+		font-size: 66px
+
+	h3
+		font-family: 'gotham-book'
+		font-size: 32px
+		color: $gray
+
+	img.doe-coracao
+		position: absolute
+		top: -190px
+		left: -30px
+	
+@media(max-width: #{$xs-max})
+	section.featured-text
+		margin-top: 30px
+
+		h2
+			font-size: 30px
+
+		h3
+			font-size: 20px
+
+		img.doe-coracao
+			top: -80px
+			left: 20px
+			width: 80px
+
+// =========
+// Hero Shot
+// =========
+
+.hero-shot
+	margin-top: -120px
+	margin-bottom: -60px
+
+@media(max-width: #{$xs-max})
+	.hero-shot
+		margin: 0
+		margin-top: 20px
+
+// Footer
+
+footer
+	p
+		margin-top: 100px
+		font-size: 35px
+
+	@media(max-width: #{$xs-max})
+		p
+			margin-top: 30px
+			font-size: 20px
+
+	@media(min-width: #{$sm-min}) and (max-width: #{$md-max})
+		p
+			font-size: 25px

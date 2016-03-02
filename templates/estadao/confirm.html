@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Assine Estadão - Obrigado por sua solicitação!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/estadao/custom.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/titilium/stylesheet.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+	</head>
+	<body>
+
+	<!-- Offer Conversion: Estadão - CPL - BR -->
+	<img src="http://tracking.rtkrsecure1002.com/aff_l?offer_id=702&adv_sub={{lead.id}}" width="1" height="1" />
+	<!-- // End Offer Conversion -->
+		
+		<!-- ************ -->
+		<!-- Plan Details -->
+		<!-- ************ -->
+		<div class="container plan-details">
+			<div class="row logos">
+				<img src="{% static 'img/estadao/logo-estadao.png' %}" alt="Logo Estadão">
+			</div>
+			<hgroup class="row">
+				<div class="col-xs-12">
+					<h1 class="text-center">Muito obrigado!</h1>
+					<h2 class="text-center">Sua solicitação será respondida o mais rápido possível por um de nossos atendentes.</h2>
+					<hr class="dotted-spaced">
+				</div>
+			</hgroup>
+		</div>
+
+		<footer class="container text-center">
+			Powered by <strong>MPG</strong> - Media Planning Group - <a target="_blank" href="http://www.mediaplanning.com.br">www.mediaplanning.com.br</a>
+		</footer>
+
+	<!-- ******* -->
+	<!-- SCRIPTS -->
+	<!-- ******* -->
+
+	<!-- jQuery and Bootstrap-->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- JavaScript Plugins -->
+    <script src="{% static 'js/jquery.gritter.js' %}"></script>
+    <script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+
+	<!-- Custom Javascript -->
+	<script src="{% static 'js/estadao/main.js' %}"></script>	
+	</body>
+</html>

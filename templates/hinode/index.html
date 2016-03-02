@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
+		<title>Conquiste sua independência financeira - Microfranquias Hinode</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/hinode/custom.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/titilium/stylesheet.css' %}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row header">
+				<div class="col-lg-12 logo-wrapper text-center">
+					<img src="{% static 'img/hinode/hinode-logo.png' %}" alt="Hinode Logo" class="responsive logo">
+				</div>
+				
+				<div class="col-md-7">
+					<h1>Procurando uma oportunidade de negócio?<br>Conquiste sua independência financeira!</h1>
+					<h2>Seja um consultor Hinode e faça parte de uma das maiores redes de vendas diretas do Brasil</h2>
+					<h3>Por que escolher a Hinode?</h3>
+					<ul class="benefits">
+						<li>Não é necessário experiência</li>
+						<li>Flexibilidade de horário</li>
+						<li>Oferecemos treinamento completo</li>
+						<li>Você será seu próprio chefe</li>
+						<li>Alta lucratividade</li>
+						<li>10 formas de ganhos</li>
+						<li>Prêmios especiais e viagens</li>
+					</ul>
+					<div class="arrow-wrapper text-right visible-lg">
+						<img class="responsive" src="{% static 'img/hinode/arrow.png' %}" alt="Setas">
+					</div>
+				</div>
+				<div class="col-md-5">
+					
+					<div class="text-center">
+						<!-- <img class="responsive" src="{% static 'img/hinode/arrows.jpg' %}" alt="Setas"> -->
+						<img src="{% static 'img/hinode/happy-couple.png' %}" alt="Casal Feliz Conquistando Independência Financeira" class="responsive">
+					</div>
+					<div class="lead-form-wrapper top">
+						<form action="/send-lead/" class="lead-form" method="POST">
+							{% csrf_token %}
+							<input type="hidden" name="client" value="anderson-hinode">
+							<nav>
+								<ul class="row">
+									<li class="col-xs-12 text-center">
+										A Hinode liga para você
+									</li>
+								</ul>
+							</nav>
+							<div class="form-group">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="email" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+								<p class="help-block"></p>
+							</div>
+							<div class="form-group">
+								<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+							</div>
+							<div class="form-group">
+								<select name="period" class="form-control" required>
+									<option value="" disabled selected>Melhor horário</option>
+									<option value="9,12">De 9h até 12h</option>
+									<option value="12,14">De 12h até 14h</option>
+									<option value="14,18">De 14h até 18h</option>
+									<option value="18,21">De 18h até 21h</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="submit" value="Solicitar Ligação">
+								<!-- <p class="sub">Válido somente para Grande São Paulo e Baixada Santista</p> -->
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<footer class="container text-center">
+			Powered by <strong>MPG</strong> - Media Planning Group - <a target="_blank" href="http://www.mediaplanning.com.br">www.mediaplanning.com.br</a>
+		</footer>
+
+		<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+		<script>
+			$('.phone-mask').mask('(00) 00000-0000');
+		</script>
+	</body>
+</html>

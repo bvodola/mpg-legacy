@@ -1,0 +1,335 @@
+/*
+ * ESPM Landing Page Stylesheet
+ */
+
+/* ***********
+ * Main Styles
+ * *********** */ 
+
+.mt-sm {
+	margin-top: 10px;
+}
+
+.mt-lg {
+	margin-top: 30px;
+}
+
+.mb-lg {
+	margin-bottom: 30px;
+}
+
+ .responsive {
+ 	max-width: 100%;
+ 	height: auto;
+ }
+
+@media(max-width: 768px) {
+	.center-xs {
+		text-align: center;
+	}
+}
+
+::-webkit-input-placeholder {
+   color: #666 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #666 !important;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #666 !important;  
+}
+
+:-ms-input-placeholder {  
+   color: #666 !important; 
+}
+
+.featured .lead-form-wrapper select {
+	color: #666 !important;
+	box-shadow: inset 0 -1px 0 #999;
+	font-weight: bold;
+}
+
+.featured .lead-form-wrapper input[type=text], .featured .lead-form-wrapper input[type=email] {
+	box-shadow: inset 0 -1px 0 #999;
+	font-weight: bold;
+}
+
+.rotate-m5 {
+
+/* Safari */
+-webkit-transform: rotate(-5deg);
+
+/* Firefox */
+-moz-transform: rotate(-5deg);
+
+/* IE */
+-ms-transform: rotate(-5deg);
+
+/* Opera */
+-o-transform: rotate(-5deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+
+/* ******
+ * Header
+ * ****** */
+
+@media(max-width: 767px) {
+	.courses-duration {
+		text-align: center;
+		margin-top: 50px;			
+	}
+}
+
+@media(min-width: 1200px) {
+	.header {
+		margin-left: 8%;
+	}
+}
+
+/* *****************
+ * Featured and Form
+ * ***************** */
+
+.reduced-container {
+	max-width: 961px;
+}
+
+.featured {
+	padding-bottom: 70px;
+}
+
+.featured h1 {
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+.featured h1, .featured h2, .featured h3 {
+	
+
+}
+.featured h1 mark, .featured h2 mark, .featured h3 mark{
+	background: #9b3e48;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.featured h1 mark {
+	font-weight: bold;
+	font-size: 40px;
+}
+
+.featured h2 mark {
+    margin-left: 6px;
+    font-size: 25px;
+    font-weight: bold;
+	
+}
+
+.featured h3 mark {
+	font-size: 20px;
+	line-height: 40px;
+	margin-left: 11px;
+}
+
+.lead-form-wrapper {
+	box-shadow: 3px 3px 3px #bbb;
+	margin-top: 60px;
+	background: rgba(255,255,255,0.9);
+	border: 1px solid #eee;
+}
+
+@media(max-width: 768px) {
+
+	.featured h1 mark {
+		font-size: 25px;
+		line-height: 45px; 
+	}
+
+	.featured h2 mark {
+		font-size: 20px;
+		line-height: 35px; 
+	}
+
+	.featured h3 mark {
+		font-size: 15px;
+		line-height: 25px; 
+	}
+}
+
+@media(min-width: 1400px) {
+	.featured {
+		background-size: 100%;
+	}
+}
+
+
+
+/* ***************
+ * List of Courses
+ * *************** */
+
+.filters b {
+	margin-right: 30px;
+}
+
+.filters .btn-default {
+	
+}
+
+.filters .btn-success {
+	background-color: #729f36;
+}
+
+.filters .btn-info {
+	background-color: #4c8aa1;
+}
+
+.filters .btn-danger {
+	background-color: #d5514c;
+}
+
+@media(max-width: 600px) {
+	.btn {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+.item-list {
+
+}
+
+	.item-list ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+		.item-list ul li {
+			margin-bottom: 30px;
+			display: block;
+			position: relative;
+			float: left;
+			width: 100%;
+			padding: 20px;
+			border-bottom: 1px solid #ddd;
+		}
+
+			.views-field {
+				position: relative;
+				float: left;
+				width: 15%;
+				font-size: 11px;
+			}
+
+			.views-label, .views-field .field-content span {
+				color: #a80532;	
+				text-transform: uppercase;
+				font-weight: bold;
+				width: 100%;
+				display: block;
+			}
+
+			.views-field-field-thumb-subtitulo {
+				width: auto;
+				margin-right: 15px;
+			}
+
+			.item-list ul li h3 {
+				font-size: 13px;
+			    font-weight: bold;
+			    text-transform: uppercase;
+			    margin-bottom: 3px;
+			    margin-top: 0;
+			    width: 100%;
+			    float: none;
+			}
+				.item-list ul li h3 a {
+					color: #a80532;	
+				}
+
+			.item-list ul li p {
+				color: #636466;
+			    font-size: 12px;
+			}
+
+			.item-list ul li {
+
+			}
+
+			.views-field-field-curso-inicio-evento {
+				background: url('../../img/espm/bg-data-eventos.png') no-repeat;
+				padding-left: 35px;
+			}
+
+			.views-field-field-curso-qtd-periodos-letivos {
+				background: url('../../img/espm/bg-duracao.png') no-repeat;
+				padding-left: 35px;
+			}
+
+			.views-field-nothing {
+				background: url('../../img/espm/bg-mensalidade.png') no-repeat;
+				padding-left: 27px;
+			}
+
+			.views-field-field-local-ref-nid {
+				background: url('../../img/espm/bg-local.png') no-repeat;
+				padding-left: 27px;
+			}
+
+			.views-field-title-1 {
+				background: #a80532;
+				width: auto;
+			}
+
+				.views-field-title-1 .field-content span {
+					width: auto;
+					display: inline;
+					color: #fff;
+				}
+
+				.views-field-title-1 a {
+					color: #fff;
+					margin: 5px 10px;
+					display: block;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+
+					.views-field-title-1 a:hover {
+						text-decoration: none;
+					}
+@media(min-width: 769px) and (max-width: 992px) {
+	.views-field.course-attribute {
+		width: 19%;
+	}
+}
+
+@media(max-width: 768px) {
+
+	.lead-form input[type=submit] {
+			margin-bottom: 20px;
+		}
+
+	.views-field-field-thumb-subtitulo {
+		width: 100%;
+	}
+
+	.views-field.course-attribute {
+		width: 50%;
+		margin-bottom: 10px;
+	}
+
+	.views-field.course-cta-wrapper {
+		margin-top: 20px;
+	}
+
+
+
+}

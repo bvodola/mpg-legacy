@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
+		<title>Conquiste sua independência financeira - Microfranquias Hinode</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{% static 'css/hinode/custom.css' %}">
+			<link rel="stylesheet" href="{% static 'fonts/titilium/stylesheet.css' %}">
+		{% endblock %}
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+		{% block scripts %}
+		{% endblock %}
+	</body>
+</html>

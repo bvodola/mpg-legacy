@@ -1,0 +1,125 @@
+{% extends 'hinode/main.html' %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/hinode/1.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row header">
+		
+		<div class="col-md-5">
+			
+			<img src="{% static 'img/hinode/logo-hinode.png' %}" alt="Hinode Logo" class="responsive logo">
+
+			<h1>Procurando uma oportunidade de negócio <strong>para fugir da crise</strong>?</h1>
+			<h2>Já pensou em abrir uma microfranquia em um dos <strong>melhores segmentos do mercado brasileiro</strong>?</h2>
+			<div class="row">
+				<div class="col-md-10">
+					<h3><mark>Quais as vantagens de ser um franqueado</mark></h3>
+					<ul class="benefits">
+						<li>
+							<strong>Não é Necessário experiência anterior</strong><br>
+							Oferecemos programa completo para capacitação e autodesenvovimento para micro franqueados
+						</li>
+						<li>
+							<strong>Tenha Flexibilidade de horário</strong><br>
+							Tenha um negócio próprio e gerencie seus horários como preferir, podendo executa-lo em paralelo as suas atuais atividades
+						</li>
+						<li>
+							<strong>Elimine custos fixos</strong><br>
+							Utilize nossa estrutura de mais de 300 franquias espalhadas pelo Brasil e promova seu negócio ainda mais profissionalmente
+						</li>
+						<li>
+							<strong>Baixo investimento e retorno rápido de intestimento</strong><br>
+							Não cobramos taxas ou filiações. Inicie seu negócio próprio comprando apenas alguns produtos para montar sua micro franquia. Retorno de investimento em aproximadamente 30 - 90 dias.
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<div class="round-badge">
+						<b>Franquia</b><br>
+						à partir de<br>
+						<b>3x R$ 733,33</b>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- **** -->
+		<!-- Form -->
+		<!-- **** -->
+		<div class="col-md-offset-2 col-md-5" id="leadForm">
+			
+			<div class="text-center">
+			</div>
+			<div class="lead-form-wrapper top">
+				<form action="/send-lead/" class="lead-form" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="client" value="anderson-hinode">
+					<nav>
+						<ul class="row">
+							<li class="col-xs-12 text-center">
+								A gente liga para você!
+							</li>
+						</ul>
+					</nav>
+					<div class="form-group">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="email" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+						<p class="help-block"></p>
+					</div>
+					<div class="form-group">
+						<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+					</div>
+					<!-- <div class="form-group">
+						<input class="form-control cpf-mask" pattern=".{14}" name="cpf" type="text" maxlength="20" placeholder="CPF (só números)" required>
+					</div> -->
+					<!-- <div class="form-group">
+						<select name="period" class="form-control" required>
+							<option value="" disabled selected>Melhor horário</option>
+							<option value="9,12">De 9h até 12h</option>
+							<option value="12,14">De 12h até 14h</option>
+							<option value="14,18">De 14h até 18h</option>
+							<option value="18,21">De 18h até 21h</option>
+						</select>
+					</div> -->
+
+					<div class="form-group">
+						<input type="checkbox" name="age_over_18" id="ageOver18" class="cbox-lg" required>
+						<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
+					</div>
+					<div class="form-group">
+						<input id="sendLeadSubmit" class="form-control" type="submit" value="Receber Ligação">
+						<p class="sub">Gostaria de mais detalhes? Preencha gratuitamente a ficha acima que iremos disponibilizar um consultor de negócios especialmente para você.</p>
+					</div>
+				</form>
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script>
+
+	// Phone Mask
+	$('.phone-mask').mask('(00) 00000-0000');
+
+	// CPF Mask
+	$('.cpf-mask').mask('000.000.000-00');
+
+	// $('#leadForm').affix({});
+</script>
+{% endblock %}

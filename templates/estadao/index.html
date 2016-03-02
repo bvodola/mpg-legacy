@@ -1,0 +1,281 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
+		<title>Assine Estadão - R$1,90 no primeiro mês</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/estadao/custom.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/antonio/stylesheet.css' %}">
+		<link rel="stylesheet" href="{% static 'fonts/titilium/stylesheet.css' %}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="container">
+				
+			<div class="row logos">
+				<img src="{% static 'img/estadao/logo-estadao.png' %}" alt="Logo Health For Pet">
+			</div>
+			<hgroup class="row title">
+				<div class="col-xs-12">
+					<h1>Estadão All Digital só R$ 1,90 no 1º mês</h1>
+					<h2>+9% de desconto a partir do 2º mês</h2>
+				</div>
+			</hgroup>
+			
+			<div class="row">
+				<!-- ************** -->
+				<!-- Featured Image -->
+				<!-- ************** -->
+				<div class="col-md-8 featured-image-wrapper">
+					<img class="featured-image responsive" src="{% static 'img/estadao/oferta-estadao.jpg' %}" alt="Cachorro no telefone">
+				</div>
+
+				<!-- ********* -->
+				<!-- Lead Form -->
+				<!-- ********* -->
+				<div class="col-md-4 lead-form-wrapper top">
+					<form action="/send-lead/" class="lead-form" method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="client" value="estadao">
+						<nav>
+							<ul class="row">
+								<li class="col-xs-12 text-center">
+									O Estadão liga para você
+								</li>
+							</ul>
+						</nav>
+						<div class="form-group">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="email" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+							<p class="help-block"></p>
+						</div>
+						<div class="form-group">
+							<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+						</div>
+						<div class="form-group">
+							<select name="period" class="form-control" required>
+								<option value="" disabled selected>Melhor horário</option>
+								<option value="9,12">De 9h até 12h</option>
+								<option value="12,14">De 12h até 14h</option>
+								<option value="14,18">De 14h até 18h</option>
+								<option value="18,21">De 18h até 21h</option>
+							</select>
+						</div>
+						<!-- Are you Over 18? -->
+						<div class="form-group">
+							<input type="checkbox" name="age_over_18" id="ageOver18" required>
+							<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="submit" value="Solicitar Ligação">
+							<!-- <p class="sub">Válido somente para Grande São Paulo e Baixada Santista</p> -->
+						</div>
+					</form>
+				</div>
+
+				<!-- ****************** -->
+				<!-- Floating Lead Form -->
+				<!-- ****************** -->
+				<div class="floating-lead-form-wrapper top" data-spy="affix">
+					<form action="/send-message/" class="lead-form" method="POST">
+						{% csrf_token %}
+						<input type="hidden" name="client" value="estadao">
+						<nav>
+							<ul class="row">
+								<li class="col-xs-12 text-center">
+									O Estadão liga para você
+								</li>
+							</ul>
+						</nav>
+						<div class="form-group">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="name" placeholder="Nome Completo" required data-validation-required-message="Campo obrigatório">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="email" name="email" placeholder="E-mail" required data-validation-required-message="E-mail inválido">
+							<p class="help-block"></p>
+						</div>
+						<div class="form-group">
+							<input pattern=".{14,15}" class="form-control phone-mask" name="phone" type="text" maxlength="15" placeholder="DDD+Celular" required>
+						</div>
+					
+						<div class="form-group">
+							<select name="period" class="form-control" required>
+								<option value="" disabled selected>Melhor horário</option>
+								<option value="9,12">De 9h até 12h</option>
+								<option value="12,14">De 12h até 14h</option>
+								<option value="14,18">De 14h até 18h</option>
+								<option value="18,21">De 18h até 21h</option>
+							</select>
+						</div>
+						<!-- Are you Over 18? -->
+						<div class="form-group">
+							<input type="checkbox" name="age_over_18" id="ageOver18_float" class="cbox-lg" required>
+							<label class="cbox-label cbox-lg-label" for="ageOver18_float">Tenho mais de 18 anos</label>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="submit" value="Solicitar Ligação">
+							<!-- <p class="sub">Válido somente para Grande São Paulo e Baixada Santista</p> -->
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		
+		<!-- Benefits -->
+		<div class="container benefits">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-xs-1"><i class="fa fa-check-circle"></i></div>
+						<div class="col-xs-10"><p>Enfrente a <b>crise atual</b> mais bem informado(a)</p></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-xs-1"><i class="fa fa-check-circle"></i></div>
+						<div class="col-xs-10"><p>Nas redes sociais só se publica <b>30% do conteúdo relevante</b></p></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-xs-1"><i class="fa fa-check-circle"></i></div>
+						<div class="col-xs-10"><p>Assine o Estadão e esteja sempre com  <b>melhor conteúdo</b></p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ************ -->
+		<!-- Plan Details -->
+		<!-- ************ -->
+		<div class="container plan-details">
+			<div class="row">
+				<hr>
+				<div class="col-xs-12 col-md-7">
+					<h1>Entenda tudo o que esta assinatura oferece</h1>
+					<img class="responsive" src="{% static 'img/estadao/logos-do-estadao.jpg' %}" alt="O que esta assinatura oferece">
+
+					<h2>Portal Estadão (versões em Desktop e Mobile):</h2>
+					<ul>
+						<li>Acesso ilimitado e irrestrito a todo o conteúdo do Portal Estadão nas versões Desktop e Mobile.</li>
+					</ul>
+					
+					<h2>Estadão Premium (o jornal diário com mais vida e interatividade):</h2>
+					<ul>
+						<li>Acesse as páginas do Jornal Impresso, digitalizadas e interativas, no seu tablet, a partir das 5 horas da manhã.</li>
+						<li>Ícones e anúncios piscarão indicando interatividade: você pode, por exemplo, ver uma galeria de fotos ou vídeo, o desdobramento das notícias no site do Estadão, cotações em tempo real ou se comunicar com a redação.</li>
+						<img class="responsive" src="{% static 'img/estadao/icones-de-interatividade.jpg' %}" alt="Ícones de Interatividade do Estadão">
+						<li>Faça download das edições para ler enquanto estiver off-line.</li>
+						<li>Toque na notícia que lhe interessa e salte diretamente para a página em que foi publicada.</li>
+						<li>Jogue Cruzadas e Sudoku diretamente do seu tablet. As suas respostas ficarão armazenadas até que decida reiniciá-las.</li>
+						<img class="responsive" src="{% static 'img/estadao/palavras-cruzadas-e-sudoku.jpg' %}" alt="Palavras Cruzadas e Sudoku no Estadão">
+					</ul>
+
+					<h2>Estadão Noite (de segunda a sexta-feira, a partir das 20 horas)</h2>
+					<ul>
+						<li>Análise das notícias do dia e uma prévia das matérias do dia seguinte.</li>
+						<li>Colunistas com conteúdo especial e antecipado.</li>
+						<li>Link com áudio para as principais notícias da Rádio Estadão.</li>
+						<li>Seleção de fotos: imagens que marcaram o dia.</li>
+					</ul>
+
+					<h2>Olhar Estadão (uma parceria com o The New York Times)</h2>
+					<ul>
+						<li>A síntese do fotojornalismo da semana.</li>
+					</ul>
+
+					<h2>Estadão Acervo</h2>
+					<ul>
+						<li>O maior acervo de notícias do País. São 140 anos de história, com matérias e reportagens desde 1875, inteiramente à sua disposição.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- ************* -->
+		<!-- Main Features -->
+		<!-- ************* -->
+		<div class="main-features visible-xs visible-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 comercial-contact">
+						<p class="featured">
+							Entraremos em contato para resolver suas dúvidas hoje mesmo
+						</p>
+					</div>
+					<div class="col-md-6 first-month-free text-center">
+						<a href="#top" class="form-control green-input">Solicitar Ligação</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+		
+		<!-- ****** -->
+		<!-- Footer -->
+		<!-- ****** -->
+		<footer class="text-center">
+			Powered by <strong>MPG</strong> - Media Planning Group - <a target="_blank" href="http://www.mediaplanning.com.br">www.mediaplanning.com.br</a>
+		</footer>
+
+	<!-- ******* -->
+	<!-- SCRIPTS -->
+	<!-- ******* -->
+
+	<!-- jQuery and Bootstrap-->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- JavaScript Plugins -->
+    <script src="{% static 'js/jquery.gritter.js' %}"></script>
+    <script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+
+	<!-- Custom Javascript -->
+	<script src="{% static 'js/estadao/main.js' %}"></script>	
+
+	<script type="text/javascript">
+	
+    // =====
+    // Affix
+    // =====
+    $(function() {
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= 650) {
+                $('.floating-lead-form-wrapper').fadeIn('fast');
+            }else{
+                $('.floating-lead-form-wrapper').fadeOut('fast');
+            }
+        });
+    });
+
+	// =============
+    // Scroll To Top
+    // =============
+    $("a[href='#top']").click(function() {
+	  $("html, body").animate({ scrollTop: 470 }, "slow");
+	  return false;
+	});
+
+	</script>
+	
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+	<script>
+		var options =  {onKeyPress: function(value, e, field, options){
+			var masks = ['(00) 0000-00000', '(00) 00000-0000'];
+			mask = (value.length>14) ? masks[1] : masks[0];
+			$('.phone-mask').mask(mask, options);
+		}};
+
+		$('.phone-mask').mask('(00) 0000-00000', options);
+
+	</script>
+	</body>
+</html>

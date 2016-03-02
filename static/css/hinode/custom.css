@@ -1,0 +1,159 @@
+body {
+	/*background: url('../../img/hinode/beach.jpg') 100% fixed;*/
+	font-family: 'titilium';
+}
+
+
+h1 {
+	color: #c41d1d;
+}
+
+h3 {
+	font-style: italic;
+}
+
+.logo-wrapper {
+	margin: 30px 0;
+}
+
+img.responsive {
+	max-width: 100%;
+	height: auto;
+}
+
+ul.benefits {
+	list-style-image: url('../../img/hinode/check.png');
+}
+
+ul.benefits li {
+	line-height: 32px;
+	font-size: 20px;
+	color: #666;
+}
+
+footer {
+	margin-top: 50px;
+}
+
+/* *********
+ * Lead Form
+ * ********* */
+
+.lead-form-wrapper, .floating-lead-form-wrapper {
+	background: #ffe99a;
+	padding: 0 30px;
+	border-radius: 4px;
+	border: 1px solid #e6a601;
+	margin-bottom: 15px;
+}
+
+.floating-lead-form-wrapper {
+	display: none;
+}
+
+@media (min-width:992px) {
+	.floating-lead-form-wrapper {
+		width: 30%;
+		right: 5.8%;
+		top: 10%;
+	}
+}
+
+	.lead-form {
+	}
+
+	.lead-form p {
+		color: #fff;
+		font-size: 20px;
+	}
+
+	.lead-form p.sub {
+		font-size: 12px;
+		text-align: center;
+		margin-top: 10px;
+		color: #666;
+	}
+
+	.lead-form nav {
+		margin: 0 -15px;
+	}
+
+	.lead-form nav ul {
+		background: #e6a601;
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+	}
+
+	.lead-form nav ul li {
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 18px;
+		padding: 15px;
+	}
+
+	.lead-form nav ul li mark {
+		background-color: transparent;
+		color: #fff;
+		border-radius: 100px;
+		border: 1px solid #fff;
+		padding: 7px 15px;
+		font-size: 22px;
+	}
+
+		.lead-form nav ul li mark.n2 {
+			padding: 7px 13px;
+		}
+	
+	.lead-form .form-group {
+		margin-bottom: 10px;
+	}
+
+	.lead-form .form-control {
+		height: 50px;
+		font-size: 18px;
+		box-shadow: 0px 2px 1px #ddd inset;
+		border-bottom: 1px solid #4d859b;
+	}
+
+	.lead-form .phone input {
+		display: inline;
+	}
+
+	.lead-form .phone .area-code {
+		width: 20%;
+	}
+
+	.lead-form .phone .phone-number {
+		width: 75.5%;
+		margin-left: 3%;
+	}
+
+	@media(max-width: 350px) {
+		.lead-form .phone .phone-number {
+			width: 74.5%;
+		}
+	}
+
+	@media(min-width: 992px) and (max-width: 1200px) {
+		.lead-form .phone .phone-number {
+			width: 74.5%;
+		}
+	}
+
+	.lead-form input[type=submit], .green-input {
+		background-color: rgb(49,175,5);
+		border: 1px solid #059f03;
+		border-radius: 4px;
+		color: #fff;
+		text-shadow: 1px 1px #059f03;
+		font-size: 18px;
+		box-shadow: 0 1px #70cc2d inset;
+	}
+
+	a.green-input {
+		padding: 10px 0;
+		color: #fff !important;
+		text-decoration: none;
+		padding: 11px 0;
+		height: 50px;
+	}

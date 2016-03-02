@@ -1,0 +1,138 @@
+ /* ***********
+  * Main Styles
+  * *********** */
+
+body {
+	background-color: #101319;
+}
+
+a, a:hover {
+	color: #fff;
+}
+
+input[type=text], input[type=submit], textarea, select {
+	border: 0 !important;
+	border-radius: 0 !important;
+	height: 50px !important;
+}
+
+.responsive {
+	max-width: 100%;
+	height: auto;
+}
+
+.feature-block {
+	text-align: center;
+	padding: 20px;
+}
+
+/* ********
+ * Featured
+ * ******** */
+.featured {	
+	background: url('../../img/vocacao/bg1.jpg') no-repeat #43412f;
+	color: #fff;
+}
+
+.logo-wrapper {
+	margin-top: 40px;
+}
+
+.logo {
+	margin-bottom: 30px;
+}
+
+.lead-form-wrapper {
+	color: #fff;
+	background: rgba(13,175,205,0.9);
+	padding: 50px;
+}
+
+.lead-form input[type=submit] {
+	background-color: #fbed00;
+	font-weight: bold;
+}
+
+.lead-form p.form-title {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.lead-form p.sub {
+	text-align: center;
+	color: #2d2c2c;
+	font-size: 18px;
+	margin-top: 30px;
+}
+
+@media(max-width:768px) {
+	.featured {
+		background-position-x: 50%;
+	}
+}
+
+/* ********************
+ * Featured (Secondary)
+ * ******************** */
+
+.featured-secondary {
+	margin-top: 30px;
+}
+
+.featured-secondary .formation {
+	color: #00b3db;
+	background: #4a4144;
+	text-align: center;
+}
+
+.featured-secondary .institutional {
+	text-align: right;
+}
+
+/* *********
+ * Secondary
+ * ********* */
+
+.secondary {
+	background: url('../../img/vocacao/bg2.jpg') no-repeat #775f45;
+	color: #fff;
+}
+
+.secondary .community {
+	background-color: #fbed00;
+	color: #5d545e;
+}
+
+.secondary .work {
+	background-color: #00b3db;
+	color: #fff;
+}
+
+.secondary .disclaimers {
+	margin-top: 50px;
+	font-size: 22px;
+}
+
+.secondary .disclaimers p {
+	margin-top: 30px;
+}
+
+.secondary footer {
+	text-align: right;
+	color: #ccc;
+	margin: 40px 0 20px 0;
+}
+
+@media(max-width:768px) {
+	.secondary {
+		background-position-x: 80%;
+	}
+}
+
+@media(min-width: 1300px) {
+	.featured, .secondary {
+		background-size: 100%;
+	}
+}
