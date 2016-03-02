@@ -40,53 +40,60 @@ def send_lead(request, client = ""):
 	# Cheks if the request is a POST
 	if(request.method == 'POST'):
 
-		# Fetch the attributes from the POST request
-		name = request.POST.get('name')
-		email = request.POST.get('email')
-		phone = request.POST.get('phone')
-
 		if(client == ""):
 			client = request.POST.get('client')
 
-		# Try DDD
-		try:
-			request.POST.get('ddd')
-		except NameError:
-			ddd = ''
+		# ==========================================
+		# Fetch the attributes from the POST request
+		# ==========================================
+		
+		# Try name
+		if request.POST.get('name') is not None:
+			name = request.POST.get('name')
 		else:
+			name = ''
+
+		# Try email
+		if request.POST.get('email') is not None:
+			email = request.POST.get('email')
+		else:
+			email = ''
+
+		# Try phone
+		if request.POST.get('phone') is not None:
+			phone = request.POST.get('phone')
+		else:
+			phone = ''
+
+		# Try ddd
+		if request.POST.get('ddd') is not None:
 			ddd = request.POST.get('ddd')
-
-		# Try Period
-		try:
-			request.POST.get('period')
-		except TypeError:
-			period = ''
 		else:
+			ddd = ''
+		
+		# Try period
+		if request.POST.get('period') is not None:
 			period = request.POST.get('period')
-
-		# Try CPF
-		try:
-			request.POST.get('cpf')
-		except NameError:
-			cpf = ''
 		else:
+			period = ''
+
+		# Try cpf
+		if request.POST.get('cpf') is not None:
 			cpf = request.POST.get('cpf')
-
-		# Try Message
-		try:
-			request.POST.get('message')
-		except NameError:
-			content = ''
 		else:
-			content = request.POST.get('message')
+			cpf = ''
 
-		# Try Lead.obs
-		try:
-			request.POST.get('obs')
-		except NameError:
-			obs = ''
+		# Try message
+		if request.POST.get('message') is not None:
+			message = request.POST.get('message')
 		else:
+			message = ''
+
+		# Try obs
+		if request.POST.get('obs') is not None:
 			obs = request.POST.get('obs')
+		else:
+			obs = ''
 
 		# =======
 		# Estadão
@@ -110,7 +117,7 @@ def send_lead(request, client = ""):
 		# ======
 		# Hinode
 		# ======
-		elif (client == 'anderson-hinode'):
+		elif (client == 'hinode'):
 			subject = '[MPG] Lead Hinode'
 			content = 'Nome: '+name+"\n"+'Telefone: '+phone+"\n"+'Email: '+email+"\n"+'Melhor Horário: '+period+"\n"
 			sender = 'hinode@mediaplanning.com.br'
