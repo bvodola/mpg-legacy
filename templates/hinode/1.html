@@ -127,7 +127,6 @@
 	var submitButtonId = '#sendLeadSubmit';
 
 	$(formId).submit(function(e) {
-		e.preventDefault();
 		
 		$(submitButtonId).attr('disabled','disabled');
 		$(submitButtonId).attr('value','Enviando...');
