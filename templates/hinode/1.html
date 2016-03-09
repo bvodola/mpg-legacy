@@ -3,6 +3,7 @@
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/hinode/1.css' %}">
+<link rel="stylesheet" href="{% static 'css/default.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -119,6 +120,26 @@
 	// CPF Mask
 	$('.cpf-mask').mask('000.000.000-00');
 
-	// $('#leadForm').affix({});
+	// ===========================
+	// Overlay Loading (on submit)
+	// ===========================
+	var formId = '#leadForm';
+	var submitButtonId = '#sendLeadSubmit';
+
+	$(formId).submit(function(e) {
+		e.preventDefault();
+		
+		$(submitButtonId).attr('disabled','disabled');
+		$(submitButtonId).attr('value','Enviando...');
+
+		// add the overlay with loading image to the page
+		var over =  '<div id="overlay">' +
+						'<div id="loading"></div>' +
+					'</div>';
+		$(over).appendTo('body');
+
+		return true;
+	});
+
 </script>
 {% endblock %}
