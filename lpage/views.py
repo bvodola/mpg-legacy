@@ -127,7 +127,7 @@ def send_lead(request, client = ""):
 
 			# Saves the Lead on Lead Manager API
 			auth_header = {'Authorization': 'Token '+settings.LM_API_TOKEN}
-			payload = {'name': name, 'phone1': phone, 'email': email, 'cpf': cpf, 'best_period': period, 'client': settings.LM_API_URL+'users/5/'}
+			payload = {'name': name, 'phone1': phone, 'email': email, 'cpf': cpf, 'best_period': period, 'client': settings.LM_API_URL+'users/20/'}
 			req = requests.post(settings.LM_API_URL+'leads/', data=payload, headers=auth_header)
 
 			# Creates the message Object
