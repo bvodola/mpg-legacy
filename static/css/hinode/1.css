@@ -181,7 +181,7 @@ footer, footer a {
 }
 
 	.round-badge b {
-		font-size: 23px;
+		font-size: 19px;
 	}
 
 @media(min-width: 1200px) {
@@ -189,6 +189,11 @@ footer, footer a {
 		margin: 50px 0 0 35px;
 	}
 }
+
+@media(max-width: 992px){.round-badge-wrapper {padding-left: 36%;}}
+@media(max-width: 500px){.round-badge-wrapper {padding-left: 30%;}}
+@media(max-width: 400px){.round-badge-wrapper {padding-left: 23%;}}
+@media(max-width: 350px){.round-badge-wrapper {padding-left: 17%;}}
 
 .cbox-lg {
 	width: 25px;
