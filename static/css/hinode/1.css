@@ -18,12 +18,14 @@ h1 {
 }
 
 h2 {
-	color: #ca0000;
 	font-size: 23px;
 }
 
+	h2 img {
+		width: 150px;
+	}
+
 h1 strong, h2 strong {
-	text-decoration: underline;
 }
 
 h3 {
