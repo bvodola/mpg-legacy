@@ -1,0 +1,70 @@
+body {
+	margin-top: 20px;
+	text-align: center;
+	font-family: 'asap';
+	
+}
+
+.logo {
+	width: 100px;
+}
+
+h1 {
+	color: #c00;
+}
+
+
+
+h2 {
+	color: #999;
+	font-size: 20px;
+}
+
+h3 {
+	color: #666;
+	font-size: 24x;
+	margin-bottom: 40px;
+}
+
+.logo-exame {
+	width: 100px;
+}
+
+.facebook-like-box {
+	margin-top: 50px;
+}
+
+.whatsapp-button {
+	background: #43d854;
+    border: 1px solid #23CC38;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px #ccc;
+    font-weight: bold;
+}
+
+.whatsapp-button img {
+	width: 30px;
+	margin-right: 15px;
+}
+
+@media (max-width: 776px) {
+	h1 {
+		font-size: 24px;
+	}
+
+	h2 {
+		font-size: 16px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	.whatsapp-button {
+		font-size: 18px;
+	}
+}

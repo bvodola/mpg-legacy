@@ -1,0 +1,109 @@
+{% extends 'hinode/main.html' %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/hinode/2.css' %}">
+<link rel="stylesheet" href="{% static 'css/default.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/asap/stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<img src="{% static 'img/hinode/logo-hinode.png' %}" alt="Hinode Logo" class="responsive logo">
+	<h2>Solicite nosso contato 100% sem compromisso</h2>
+	<h1>Abra uma das 10 microfranquias mais procuradas pelos brasileiros segundo o portal <img src="{% static 'img/hinode/exame.jpg' %}" alt="Logo Portal Exame" class="logo-exame"></h1>
+	<h3>Não tem custos fixos e não é necessário experiência anterior</h3>
+	<button class="whatsapp-button" id="formModalButton">
+		<img src="{% static 'img/whatsapp-logo.png' %}"> Quero saber mais 
+	</button>
+	<div class="row facebook-like-box">
+		<div class="col-lg-12">
+			<div class="fb-like" data-href="https://www.facebook.com/Hinode.Cosmeticos.Oficial/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" data-width="225"></div>
+		</div>
+	</div>
+</div>
+
+<!-- ***** -->
+<!-- Modal -->
+<!-- ***** -->
+<div class="modal" id="formModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+    		
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						<h3>Digite seus dados abaixo e solicite nosso contato via Whatsapp</h3>
+						<form id="leadForm">
+							<div class="form-group">
+								<input class="form-control" placeholder="Nome" />
+							</div>
+							<div class="form-group">
+								<input class="form-control phone-mask" placeholder="Whatsapp" />
+							</div>
+							<button type="submit" class="whatsapp-button" id="sendLeadSubmit">
+								<img src="{% static 'img/whatsapp-logo.png' %}"> Quero saber mais 
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<!-- ****************** -->
+<!-- Facebook  Like Box -->
+<!-- ****************** -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=943741645643957";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript" src="{% static 'js/lib/jquery.mask.min.js' %}"></script>
+<script type="text/javascript">
+
+	// =====
+	// Modal 
+	// =====
+	$("#formModalButton").click(function(){
+		$("#formModal").modal('show');
+	});
+
+	// ==========
+	// Phone Mask
+	// ==========
+	$('.phone-mask').mask('(00) 00000-0000');
+
+	// ===========================
+	// Overlay Loading (on submit)
+	// ===========================
+	var formId = '#leadForm';
+	var submitButtonId = '#sendLeadSubmit';
+
+	$(formId).submit(function(e) {
+		$("#formModal").modal('hide');
+		$(submitButtonId).attr('disabled','disabled');
+
+		// add the overlay with loading image to the page
+		var over =  '<div id="overlay">' +
+						'<div id="loading"></div>' +
+					'</div>';
+		$(over).appendTo('body');
+
+		return true;
+	});
+
+</script>
+{% endblock %}

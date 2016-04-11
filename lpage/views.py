@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import requests, json
 from django.shortcuts import render
 from django.core.mail import EmailMessage
