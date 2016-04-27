@@ -10,11 +10,7 @@ from .models import GlobalData, ESPMCourse
 
 def index(request):
 	data = GlobalData.objects.all() # Grab global data of the website
-	return render(request,'lpage/index.html', {'data': data})
-
-def home(request):
-	data = GlobalData.objects.all() # Grab global data of the website
-	return render(request,'creative/index.html', {'data': data})
+	return render(request,'mpg/index.html', {'data': data})
 
 def page(request,slug,template):
 

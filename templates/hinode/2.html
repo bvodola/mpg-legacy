@@ -37,12 +37,17 @@
 				<div class="row">
 					<div class="col-lg-10 col-lg-offset-1">
 						<h3>Digite seus dados abaixo e solicite nosso contato via Whatsapp</h3>
-						<form id="leadForm">
+						<form id="leadForm" action="/send-lead/hinode" class="lead-form" method="POST">
+						{% csrf_token %}
 							<div class="form-group">
-								<input class="form-control" placeholder="Nome" />
+								<input class="form-control" name="name" placeholder="Nome" />
 							</div>
 							<div class="form-group">
-								<input class="form-control phone-mask" placeholder="Whatsapp" />
+								<input class="form-control phone-mask" name="phone" placeholder="Whatsapp" />
+							</div>
+							<div class="form-group">
+								<input type="checkbox" name="age_over_18" id="ageOver18" class="cbox-lg" required>
+								<label class="cbox-label cbox-lg-label" for="ageOver18">Tenho mais de 18 anos</label>
 							</div>
 							<button type="submit" class="whatsapp-button" id="sendLeadSubmit">
 								<img src="{% static 'img/whatsapp-logo.png' %}"> Quero saber mais 

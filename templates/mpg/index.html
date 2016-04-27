@@ -1,0 +1,36 @@
+{% extends "mpg/main.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="banner">
+	<div class="row">
+		
+	</div>
+	<div class="row">
+		<div class="col s6 center agency">
+			<h2>Agencias e Anunciantes</h2>
+			<p>
+				Ganhe mais visibilidade online para você ou para seu cliente.
+			</p>
+			<button class="waves-effect waves-light btn-large">Saiba mais <i class="right material-icons">send</i></button>
+		</div>
+		<div class="col s6 center publisher">
+			<h2>Editoras e Publishers</h2>
+			<p>
+				Torne suas páginas e portais mais rentáveis hoje mesmo.
+			</p>
+			<button class="waves-effect waves-light btn-large blue darken-2">Saiba mais<i class="right material-icons">send</i></button>
+		</div>
+	</div>
+</div>    
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $('.parallax').parallax();
+	});
+</script>
+{% endblock %}        

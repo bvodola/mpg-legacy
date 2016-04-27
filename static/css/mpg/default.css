@@ -1,0 +1,55 @@
+/* line 1, ../../compass/sass/mpg/default.sass */
+body {
+  font-family: "Roboto" sans-serif;
+  text-shadow: 1px 1px 1px #666666;
+}
+
+/* line 7, ../../compass/sass/mpg/default.sass */
+nav {
+  background: whitesmoke;
+}
+/* line 10, ../../compass/sass/mpg/default.sass */
+nav .brand-logo {
+  color: black;
+}
+/* line 15, ../../compass/sass/mpg/default.sass */
+nav ul#nav-mobile li a {
+  color: black;
+}
+
+/* line 18, ../../compass/sass/mpg/default.sass */
+.banner {
+  background-image: url("http://worksofwisnu.com/theme-preview/urip/layout-v2/images/stocks/stock3.jpg");
+  background-size: 100%;
+}
+/* line 22, ../../compass/sass/mpg/default.sass */
+.banner h2 {
+  font-size: 40px;
+}
+/* line 25, ../../compass/sass/mpg/default.sass */
+.banner p {
+  font-size: 25px;
+  margin: 50px 0;
+}
+/* line 29, ../../compass/sass/mpg/default.sass */
+.banner .agency {
+  padding-top: 40px;
+  height: 500px;
+  color: white;
+  background-color: rgba(255, 231, 164, 0.4);
+}
+/* line 37, ../../compass/sass/mpg/default.sass */
+.banner .agency .btn-large {
+  background-color: #ffbb00;
+}
+/* line 40, ../../compass/sass/mpg/default.sass */
+.banner .publisher {
+  padding-top: 40px;
+  height: 500px;
+  background-color: rgba(0, 0, 34, 0.2);
+  color: white;
+}
+/* line 48, ../../compass/sass/mpg/default.sass */
+.banner .publisher .btn-large {
+  background-color: #000b96;
+}
