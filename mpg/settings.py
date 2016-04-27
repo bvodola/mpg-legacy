@@ -9,6 +9,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 import sys
+from imp import reload
+reload(sys)
 sys.setdefaultencoding("utf-8")
 
 # Quick-start development settings - unsuitable for production
