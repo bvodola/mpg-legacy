@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'js/lib/js.cookie.js' %}"></script>
+<script type="text/javascript">
+	// =======
+	// Cookies
+	// =======
+	if("{{gclid}}" != "") {
+		// If gclid is set, the utm_source becomes adwords
+		Cookies.set('utm_source', 'adwords', {expires: 30});
+
+	} else if("{{utm_source}}" != "") {
+			Cookies.set('utm_source', '{{utm_source}}', {expires: 30});
+			Cookies.set('click_id', '{{click_id}}', {expires: 30});
+	}
+
+</script>

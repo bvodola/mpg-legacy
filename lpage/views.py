@@ -10,25 +10,42 @@ from .models import GlobalData, ESPMCourse
 
 def index(request):
 	data = GlobalData.objects.all() # Grab global data of the website
-	return render(request,'mpg/index.html', {'data': data})
+	return render(request,'lpage/index.html', {'data': data})
 
 def page(request,slug,template):
 
-	# Gets the version of the page (for minor changes to the page layout)
-	try:
-		request.GET.get('version')
-	except NameError:
-		version = 'a'
-	else:
-		version = request.GET.get('version')
+	# Creates the context that will be passed to the template
+	context = {}
 
-	return render(request,slug+'/'+template+'.html', {'version': version})
+	# Gets the version of the page (for minor changes to the page layout)
+	if request.GET.get('version') is not None:
+		context['version'] = request.GET.get('version')
+	else:
+		context['version'] = 'a'
+
+	# Gets the utm_source parameter from the URL (Performance Marketing Parameter)
+	if request.GET.get('utm_source') is not None:
+		context['utm_source'] = request.GET.get('utm_source')
+	else:
+		context['utm_source'] = ''
+
+	# Gets the click_id parameter from the URL (Performance Marketing Parameter)
+	if request.GET.get('click_id') is not None:
+		context['click_id'] = request.GET.get('click_id')
+	else:
+		context['click_id'] = ''
+
+	# Gets the gclid parameter from the URL (Performance Marketing Parameter)
+	if request.GET.get('gclid') is not None:
+		context['gclid'] = request.GET.get('gclid')
+	else:
+		context['gclid'] = ''
+
+	# Renders the template
+	return render(request,slug+'/'+template+'.html', context)
 
 def estadao(request):
 	return render(request,'estadao/index.html')
-
-def hinode(request):
-	return render(request,'hinode/1.html')
 
 def espm(request):
 	courses = ESPMCourse.objects.all()

@@ -8,8 +8,12 @@
 		<link rel="stylesheet" href="{% static 'fonts/titilium/stylesheet.css' %}">
 	</head>
 	<body>
+
 		{% include 'partials/_gtm.html' %}
+
+		<!-- ******************************************* -->
 		<!-- Google Code for Lead Hinode Conversion Page -->
+		<!-- ******************************************* -->
 		<script type="text/javascript">
 		/* <![CDATA[ */
 		var google_conversion_id = 939114366;
@@ -29,9 +33,9 @@
 		</noscript>
 
 		
-		<!-- ************ -->
-		<!-- Plan Details -->
-		<!-- ************ -->
+		<!-- ******* -->
+		<!-- Content -->
+		<!-- ******* -->
 		<div class="container plan-details">
 			<div class="row text-center logo-wrapper">
 				<img src="{% static 'img/hinode/hinode-logo.png' %}" alt="Hinode Logo" class="responsive logo">
@@ -60,8 +64,20 @@
     <!-- JavaScript Plugins -->
     <script src="{% static 'js/jquery.gritter.js' %}"></script>
     <script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'js/lib/js.cookie.js' %}"></script>
 
 	<!-- Custom Javascript -->
-	<script src="{% static 'js/estadao/main.js' %}"></script>	
+	<script src="{% static 'js/estadao/main.js' %}"></script>
+	
+	<!-- ************* -->
+	<!-- CityAds Pixel -->
+	<!-- ************* -->
+	<script type="text/javascript" src="{% static 'js/lib/js.cookie.js' %}"></script>
+	<script type="text/javascript">
+	if(Cookies.get('utm_source') == 'cityads') {
+		$("body").prepend("<script type=\"text/javascript\" async=\"async\" src=\"https://cityadspix.com/track/{{lead.id}}/ct/q1/c/26023?click_id="+Cookies.get('click_id')+"&customer_type=m&md=2\"></script><noscript><img src=\"https://cityadspix.com/track/{{lead.id}}/ct/q1/c/26023?click_id="+Cookies.get('click_id')+"&customer_type={{CityAds_CustomerType}}\" width=\"1\" height=\"1\"></noscript>");
+	}
+	</script>
+
 	</body>
 </html>

@@ -18,4 +18,4 @@ elif socket.gethostname() == PROD_HOST_402:
 elif socket.gethostname() == PROD_HOST_506:
 	from .settings_prod_506 import *
 else:
-	raise Exception("Cannot determine execution mode for host '%s'.  Please check DEV_HOST and PROD_HOST in settings_env.py." % socket.gethostname())
+	raise Exception("Cannot determine execution mode for host '%s'.  Please check DEV_HOST and PROD_HOST in settings_env.py." %socket.gethostname())
