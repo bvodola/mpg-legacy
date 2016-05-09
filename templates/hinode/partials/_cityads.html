@@ -2,9 +2,6 @@
 
 <script type="text/javascript">
 	if(Cookies.get('utm_source') == 'cityads') {
-		console.log('utm_source = ' + Cookies.get('utm_source'));
+		$("body").prepend("\<script type=\"text/javascript\" async=\"async\" src=\"https://cityadspix.com/track/{{lead.id}}/ct/q1/c/26023?click_id="+Cookies.get('click_id')+"&customer_type=m&md=2\">\</script\>\<noscript\>\<img src=\"https://cityadspix.com/track/{{lead.id}}/ct/q1/c/26023?click_id="+Cookies.get('click_id')+"&customer_type={{CityAds_CustomerType}}\" width=\"1\" height=\"1\"\>\</noscript\>");
 	}
 </script>
-
-<!-- <script type="text/javascript" async="async" src='https://cityadspix.com/track/{{CityAds_OrderId}}/ct/q1/c/26023?click_id={{CityAds_ClickId}}&customer_type={{CityAds_CustomerType}&md=2'></script>
-<noscript ><img src='https://cityadspix.com/track/{{CityAds_OrderId}}/ct/q1/c/26023?click_id={{CityAds_ClickId}}&customer_type={{CityAds_CustomerType}}' width="1" height="1"></noscript> -->
