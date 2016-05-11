@@ -10,7 +10,10 @@
 
 	} else if("{{utm_source}}" != "") {
 			Cookies.set('utm_source', '{{utm_source}}', {expires: 30});
-			Cookies.set('click_id', '{{click_id}}', {expires: 30});
+
+			if(Cookies.get('utm_source') == 'cityads') {
+				Cookies.set('click_id', '{{click_id}}', {expires: 30});
+			}
 	}
 
 </script>
