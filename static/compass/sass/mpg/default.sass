@@ -1,49 +1,149 @@
+/* ********* */
+/* Variables */
+/* ********* */
+$navHeight: 70px
+$paleBlue: #76c2af
+$darkBlue: #34b1c4
+$paleRed: #dd624e
+$orange: #f4a63d
+
+/* ****** */
+/* Mixins */
+/* ****** */
+
+=transition($property)
+	-webkit-transition: $property
+	-moz-transition: $property
+	-o-transition: $property
+	transition: $property
+
+=btn($color)
+	color: #fff
+	font-weight: bold
+	border: 2px solid $color
+	background: $color
+	padding: 15px 20px
+	+transition(background 0.5s ease)
+	border-radius: 3px
+	text-transform: uppercase
+
+=transparentHover($color)
+	background: transparent
+	color: $color
+	+transition(background 0.5s ease)
+
+=box($color)
+	+transition(all 0.5s ease)
+
+	.header
+		color: #fff
+		margin: -50px
+		background: $color
+		padding: 50px
+		border-top-left-radius: 5px
+		border-top-right-radius: 5px
+		text-transform: uppercase
+
+		h2	
+			font-weight: bold
+			font-size: 24px
+
+=boxHover()
+	margin-top: -5px
+	+transition(all 0.5s ease)
+
+/* *********** */
+/* Main Styles */
+/* *********** */
+
 body
-	font-family: 'Roboto' sans-serif
-	text-shadow: 1px 1px 1px #666
-	
-	
+	font-family: 'Roboto' !important
+
+/* ****** */
+/* Layout */
+/* ****** */
 
 nav
-	background: #f5f5f5
+	z-index: 1000
+	background: #fff
+	position: fixed
+	width: 100%
+	height: $navHeight
+	border-bottom: 1px solid #eee
+	top: 0
+	left: 0
 
-	.brand-logo
-		color: #000
+	.brand
+		font-size: 24px
+		color: #666
+		font-weight: bold
+		text-transform: uppercase
+		text-align: center
+		margin-top: 15px
 
-	ul#nav-mobile
-		li
-			a
-				color: #000
+		.full
+			font-size: 12px
+
+
+main
+	margin-top: $navHeight
+
+/* **** */
+/* Home */
+/* **** */
 
 .banner
-	background-image: url('http://worksofwisnu.com/theme-preview/urip/layout-v2/images/stocks/stock3.jpg')
-	background-size: 100%
+	text-align: center
+	
+	i.banner-icon
+		font-size: 50px
+		margin-top: 20px
 
-	h2
-		font-size: 40px
+	padding-top: 50px
 
 	p
 		font-size: 25px
-		margin: 50px 0
+		margin: 100px 0 50px 0
+
 
 	.agency
-		padding-top: 40px
-		height: 500px
-		color: #fff
-		background-color: rgba(255,231,164,0.4)
+		color: $darkBlue
+		background-color: rgba(79,93,115,0.1)
+		border-bottom: 3px solid rgba(79,93,115,0.2)
+		border-radius: 3px
+		padding: 50px
+		+box($darkBlue)
 
-		h2
+		p
+			color: #666
 
-		.btn-large
-			background-color: #FFBB00
+		.btn
+			+btn($darkBlue)
+			font-size: 15px
+
+		.btn:hover
+			+transparentHover($darkBlue)
+
+	.agency:hover
+		+boxHover()
 
 	.publisher
-		padding-top: 40px
-		height: 500px
-		background-color: rgba(0,0,34,0.2)
-		color: #fff
+		color: $paleRed
+		background-color: rgba(199,92,92,0.1)
+		border-bottom: 3px solid rgba(199,92,92,0.2)
+		border-radius: 3px
+		padding: 50px
+		+box($paleRed)
 
-		h2
+		p
+			color: #666
 
-		.btn-large
-			background-color: #000B96
+		.btn
+			+btn($paleRed)
+			font-size: 15px
+
+		.btn:hover
+			+transparentHover($paleRed)
+
+	.publisher:hover
+		+boxHover()

@@ -1,55 +1,191 @@
-/* line 1, ../../compass/sass/mpg/default.sass */
+/* ********* */
+/* Variables */
+/* ********* */
+/* ****** */
+/* Mixins */
+/* ****** */
+/* *********** */
+/* Main Styles */
+/* *********** */
+/* line 59, ../../compass/sass/mpg/default.sass */
 body {
-  font-family: "Roboto" sans-serif;
-  text-shadow: 1px 1px 1px #666666;
+  font-family: "Roboto" !important;
 }
 
-/* line 7, ../../compass/sass/mpg/default.sass */
+/* ****** */
+/* Layout */
+/* ****** */
+/* line 66, ../../compass/sass/mpg/default.sass */
 nav {
-  background: whitesmoke;
+  z-index: 1000;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid #eee;
+  top: 0;
+  left: 0;
 }
-/* line 10, ../../compass/sass/mpg/default.sass */
-nav .brand-logo {
-  color: black;
+/* line 76, ../../compass/sass/mpg/default.sass */
+nav .brand {
+  font-size: 24px;
+  color: #666;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 15px;
 }
-/* line 15, ../../compass/sass/mpg/default.sass */
-nav ul#nav-mobile li a {
-  color: black;
+/* line 84, ../../compass/sass/mpg/default.sass */
+nav .brand .full {
+  font-size: 12px;
 }
 
-/* line 18, ../../compass/sass/mpg/default.sass */
+/* line 88, ../../compass/sass/mpg/default.sass */
+main {
+  margin-top: 70px;
+}
+
+/* **** */
+/* Home */
+/* **** */
+/* line 95, ../../compass/sass/mpg/default.sass */
 .banner {
-  background-image: url("http://worksofwisnu.com/theme-preview/urip/layout-v2/images/stocks/stock3.jpg");
-  background-size: 100%;
+  text-align: center;
+  padding-top: 50px;
 }
-/* line 22, ../../compass/sass/mpg/default.sass */
-.banner h2 {
-  font-size: 40px;
+/* line 98, ../../compass/sass/mpg/default.sass */
+.banner i.banner-icon {
+  font-size: 50px;
+  margin-top: 20px;
 }
-/* line 25, ../../compass/sass/mpg/default.sass */
+/* line 104, ../../compass/sass/mpg/default.sass */
 .banner p {
   font-size: 25px;
-  margin: 50px 0;
+  margin: 100px 0 50px 0;
 }
-/* line 29, ../../compass/sass/mpg/default.sass */
+/* line 109, ../../compass/sass/mpg/default.sass */
 .banner .agency {
-  padding-top: 40px;
-  height: 500px;
-  color: white;
-  background-color: rgba(255, 231, 164, 0.4);
+  color: #34b1c4;
+  background-color: rgba(79, 93, 115, 0.1);
+  border-bottom: 3px solid rgba(79, 93, 115, 0.2);
+  border-radius: 3px;
+  padding: 50px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-/* line 37, ../../compass/sass/mpg/default.sass */
-.banner .agency .btn-large {
-  background-color: #ffbb00;
+/* line 38, ../../compass/sass/mpg/default.sass */
+.banner .agency .header {
+  color: #fff;
+  margin: -50px;
+  background: #34b1c4;
+  padding: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-transform: uppercase;
 }
-/* line 40, ../../compass/sass/mpg/default.sass */
+/* line 47, ../../compass/sass/mpg/default.sass */
+.banner .agency .header h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+/* line 117, ../../compass/sass/mpg/default.sass */
+.banner .agency p {
+  color: #666;
+}
+/* line 120, ../../compass/sass/mpg/default.sass */
+.banner .agency .btn {
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #34b1c4;
+  background: #34b1c4;
+  padding: 15px 20px;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+/* line 124, ../../compass/sass/mpg/default.sass */
+.banner .agency .btn:hover {
+  background: transparent;
+  color: #34b1c4;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 127, ../../compass/sass/mpg/default.sass */
+.banner .agency:hover {
+  margin-top: -5px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 130, ../../compass/sass/mpg/default.sass */
 .banner .publisher {
-  padding-top: 40px;
-  height: 500px;
-  background-color: rgba(0, 0, 34, 0.2);
-  color: white;
+  color: #dd624e;
+  background-color: rgba(199, 92, 92, 0.1);
+  border-bottom: 3px solid rgba(199, 92, 92, 0.2);
+  border-radius: 3px;
+  padding: 50px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-/* line 48, ../../compass/sass/mpg/default.sass */
-.banner .publisher .btn-large {
-  background-color: #000b96;
+/* line 38, ../../compass/sass/mpg/default.sass */
+.banner .publisher .header {
+  color: #fff;
+  margin: -50px;
+  background: #dd624e;
+  padding: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-transform: uppercase;
+}
+/* line 47, ../../compass/sass/mpg/default.sass */
+.banner .publisher .header h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+/* line 138, ../../compass/sass/mpg/default.sass */
+.banner .publisher p {
+  color: #666;
+}
+/* line 141, ../../compass/sass/mpg/default.sass */
+.banner .publisher .btn {
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #dd624e;
+  background: #dd624e;
+  padding: 15px 20px;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+/* line 145, ../../compass/sass/mpg/default.sass */
+.banner .publisher .btn:hover {
+  background: transparent;
+  color: #dd624e;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  -o-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 148, ../../compass/sass/mpg/default.sass */
+.banner .publisher:hover {
+  margin-top: -5px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
