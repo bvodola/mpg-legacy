@@ -1,0 +1,7 @@
+---
+applications:
+ - name: mpg-legacy-2
+   memory: 256M
+   buildpack: python_buildpack
+   services:
+     - mpg-database
