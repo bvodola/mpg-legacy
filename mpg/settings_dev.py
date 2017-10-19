@@ -4,7 +4,7 @@ import os
 Main Settings
 """
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'localhost', '.mybluemix.net', '.herokuapp.com']
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LM_API_URL = 'http://localhost:4000/api/' # Lead Manager API URL
 LM_API_TOKEN = '3294107ac55a318f1c7d9b8ee380c28f1979fa7a' # Lead Manager API Token

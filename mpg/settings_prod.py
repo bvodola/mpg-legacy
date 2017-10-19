@@ -4,7 +4,7 @@
 Main Settings
 """
 DEBUG = True
-ALLOWED_HOSTS = [ 'localhost', '.mybluemix.net', 'mysterious-earth-65861.herokuapp.com']
+ALLOWED_HOSTS = [ 'localhost', '.mybluemix.net', '.herokuapp.com']
 ADMINS = (('Brunno', 'bvodola@gmail.com'),)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LM_API_URL = 'http://lm.mediaplanning.com.br/api/' # Lead Manager API URL
