@@ -4,7 +4,7 @@ import os
 Main Settings
 """
 DEBUG = True
-ALLOWED_HOSTS = [ 'localhost', '.mybluemix.net', '.herokuapp.com']
+ALLOWED_HOSTS = [ 'localhost', '.mybluemix.net', '.herokuapp.com', '.bvodola.webfactional.com']
 ADMINS = (('Brunno', 'bvodola@gmail.com'),)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LM_API_URL = 'http://lm.mediaplanning.com.br/api/' # Lead Manager API URL
@@ -17,11 +17,9 @@ Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'compose',
-        'USER': 'admin',
-        'PASSWORD': 'TQZUQDWJDRKSSWEC',
-        'HOST': 'sl-us-south-1-portal.8.dblayer.com',
-        'PORT': '22590',
+        'NAME': 'mpg',
+        'USER': 'bvodola',
+        'PASSWORD': 'qZwX1001'
     }
 }
 
